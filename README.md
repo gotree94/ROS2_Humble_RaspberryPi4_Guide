@@ -8,6 +8,18 @@
 
 ---
 
+1. 설치 관련 파일
+
+2. 최적화 & 모니터링
+
+3. 시각화 도구
+
+4. QoS 관련
+
+5. Foxglove & 압축
+
+---
+
 ## 목차
 1. [방법 1: Ubuntu 22.04 Native 설치](#방법-1-ubuntu-2204-native-설치)
 2. [방법 2: Pre-built Image 사용](#방법-2-pre-built-image-사용)
