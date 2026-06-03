@@ -9,7 +9,7 @@
 ---
 
 1. 설치 관련 파일
-   * ROS2_Humble_Installation_Methods.md
+   * [https://github.com/gotree94/ROS2_Humble_RaspberryPi4_Guide/blob/main/ROS2_Humble_Installation_Methods.mdROS2_Humble_Installation_Methods.md
    * ROS2_Installation_Verification.md
 
 2. 최적화 & 모니터링
