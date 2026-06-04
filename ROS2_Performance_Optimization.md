@@ -2,22 +2,28 @@
 >(ROS2 Humble Performance Optimization Tips (Raspberry Pi 4B))
 
 ## 1. 하드웨어 / OS 레벨 최적화(OS & Hardware)
-- Ubuntu Server 사용
-- Preempt_RT Kernel
+
+- Ubuntu 22.04 Server 사용
+Desktop 대신 Server 이미지를 사용하세요. GUI가 없어 RAM/CPU를 크게 절약할 수 있습니다.
+
+- Preempt_RT Kernel (Real-time Kernel) 적용
+Real-time 성능(저지연, jitter 감소)이 중요하다면 ros-realtime 프로젝트의 Pre-built Image를 사용하거나, 직접 RT 패치를 적용하세요.
+→ 메시지 지연이 크게 줄어듭니다.
+
+Overclocking (선택)
+/boot/config.txt에서 CPU/GPU 오버클럭:Basharm_freq=1800
+
+```bash
+gpu_freq=750
+over_voltage=6(안정성을 위해 cooling fan 필수, 8GB 모델에서 효과 좋음)
+```
+
+CPU Isolation & Affinity
+중요한 ROS2 노드를 특정 코어에 고정:Bashtaskset -c 2,3 ros2 run my_package my_node또는 isolcpus 커널 파라미터로 코어 격리.
+
 - CPU Affinity
 - ZRAM
 
-Ubuntu 22.04 Server 사용
-Desktop 대신 Server 이미지를 사용하세요. GUI가 없어 RAM/CPU를 크게 절약할 수 있습니다.
-Preempt_RT Kernel (Real-time Kernel) 적용
-Real-time 성능(저지연, jitter 감소)이 중요하다면 ros-realtime 프로젝트의 Pre-built Image를 사용하거나, 직접 RT 패치를 적용하세요.
-→ 메시지 지연이 크게 줄어듭니다.
-Overclocking (선택)
-/boot/config.txt에서 CPU/GPU 오버클럭:Basharm_freq=1800
-gpu_freq=750
-over_voltage=6(안정성을 위해 cooling fan 필수, 8GB 모델에서 효과 좋음)
-CPU Isolation & Affinity
-중요한 ROS2 노드를 특정 코어에 고정:Bashtaskset -c 2,3 ros2 run my_package my_node또는 isolcpus 커널 파라미터로 코어 격리.
 Swap & ZRAM
 RAM 부족 시 ZRAM(압축 RAM) 활성화 추천. SD카드 Swap은 느리니 피하세요.
 
