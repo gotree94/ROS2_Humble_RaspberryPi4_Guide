@@ -1,5 +1,5 @@
 # ROS2 Humble 성능 최적화 팁 (Raspberry Pi 4B 8GB 기준)
-# (ROS2 Humble Performance Optimization Tips (Raspberry Pi 4B))
+>(ROS2 Humble Performance Optimization Tips (Raspberry Pi 4B))
 
 ## 1. 하드웨어 / OS 레벨 최적화(OS & Hardware)
 - Ubuntu Server 사용
